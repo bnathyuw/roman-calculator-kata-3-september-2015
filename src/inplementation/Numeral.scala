@@ -14,6 +14,6 @@ case class Numeral(value: String) {
   }
 
   private def denormalise(input: String): String = {
-    input replace("IV", "IIII")
+    input replace("IV", "IIII") replace("IX", "VIIII")
   }
 }

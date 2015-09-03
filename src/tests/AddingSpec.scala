@@ -27,4 +27,8 @@ class AddingSpec extends FlatSpec with Matchers{
   "adding I and III" should "give IV" in {
     Numeral("I") + Numeral("III") should be (Numeral("IV"))
   }
+
+  "adding IX and V" should "give XIV" in {
+    Numeral("IX") + Numeral("V") should be (Numeral("XIV"))
+  }
 }
