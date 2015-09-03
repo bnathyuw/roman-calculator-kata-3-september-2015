@@ -2,14 +2,16 @@ package inplementation
 
 case class Numeral(value: String) {
   val denormalisations = Seq(
-    ("IV", "IIII"),
-    ("IX", "VIIII")
+    replace("IV", "IIII"),
+    replace("IX", "VIIII")
   )
+  
   val normalisations = Seq(
-    ("IIIII", "V"),
-    ("IIII", "IV"),
-    ("VV", "X"),
-    ("VIV", "IX")
+    sort,
+    replace("IIIII", "V"),
+    replace("IIII", "IV"),
+    replace("VV", "X"),
+    replace("VIV", "IX")
   )
 
   def +(other: Numeral) = {
@@ -17,13 +19,19 @@ case class Numeral(value: String) {
     Numeral(normalise(s))
   }
 
-  private def denormalise(input: String): String = denormalisations.foldLeft(input)(doReplace)
-  private def normalise(input: String): String = normalisations.foldLeft(input sortWith romanOrder)(doReplace)
+  private def denormalise(input: String): String = denormalisations.foldLeft(input)(bar)
 
-  private def doReplace(input: String, rule: (String, String)) = {
-    input replace(rule._1, rule._2)
+  private def normalise(input: String): String = normalisations.foldLeft(input)(bar)
+
+  def bar(a: String, b: String => String) = b(a)
+
+  private def replace(target: String, replacement: String) = (input: String) => {
+    input replace(target, replacement)
+  }
+
+  private def sort = (input: String) => {
+    input sortWith romanOrder
   }
 
   private def romanOrder(a: Char, b: Char) = a != 'I'
-
 }
