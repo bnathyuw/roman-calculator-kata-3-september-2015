@@ -14,7 +14,8 @@ case class Numeral(value: String) {
     replace("VV", "X"),
     replace("VIV", "IX"),
     replace("XXXXX", "L"),
-    replace("XXXX", "XL")
+    replace("XXXX", "XL"),
+    replace("LXL", "XC")
   )
 
   def +(other: Numeral) = {
@@ -36,11 +37,7 @@ case class Numeral(value: String) {
     input sortWith romanOrder
   }
 
-  private def romanOrder(a: Char, b: Char): Boolean = (a, b) match {
-    case ('I', _) => false
-    case (_, 'I') => true
-    case ('V', _) => false
-    case (_, 'V') => true
-    case _ => true
-  }
+  private val weights = Seq('I', 'V', 'X', 'L', 'C')
+
+  private def romanOrder(a: Char, b: Char) = weights.indexOf(a) > weights.indexOf(b)
 }

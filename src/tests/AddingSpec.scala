@@ -39,4 +39,8 @@ class AddingSpec extends FlatSpec with Matchers{
   "adding XXX and X" should "give XL" in {
     Numeral("XXX") + Numeral("X") should be (Numeral("XL"))
   }
+
+  "adding LXXX and X" should "give XC" in {
+    Numeral("LXXX") + Numeral("X") should be (Numeral("XC"))
+  }
 }
