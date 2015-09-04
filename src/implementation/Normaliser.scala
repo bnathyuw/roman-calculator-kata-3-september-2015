@@ -1,7 +1,7 @@
-package inplementation
+package implementation
 
-import inplementation.Replacer.replace
-import inplementation.Sorter.sort
+import implementation.Replacer.replace
+import implementation.Sorter.sort
 
 class Normaliser extends Processor(Seq(
   sort,

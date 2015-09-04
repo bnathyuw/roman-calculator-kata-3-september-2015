@@ -1,6 +1,6 @@
 package tests
 
-import inplementation.Numeral
+import implementation.Numeral
 import org.scalatest._
 
 class AddingSpec extends FlatSpec with Matchers{

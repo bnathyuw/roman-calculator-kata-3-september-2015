@@ -1,4 +1,4 @@
-package inplementation
+package implementation
 
 object Calculator {
   val denormaliser = new Denormaliser()
