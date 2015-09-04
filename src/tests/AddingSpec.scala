@@ -43,4 +43,16 @@ class AddingSpec extends FlatSpec with Matchers{
   "adding LXXX and X" should "give XC" in {
     Numeral("LXXX") + Numeral("X") should be (Numeral("XC"))
   }
+
+  "adding XC and XX" should "give CX" in {
+    Numeral("XC") + Numeral("XX") should be (Numeral("CX"))
+  }
+
+  "adding CCC and C" should "give CD" in {
+    Numeral("CCC") + Numeral("C") should be (Numeral("CD"))
+  }
+
+  "adding CD and CC" should "give DC" in {
+    Numeral("CD") + Numeral("CC") should be (Numeral("DC"))
+  }
 }

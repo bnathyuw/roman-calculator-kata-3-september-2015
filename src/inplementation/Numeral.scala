@@ -4,7 +4,9 @@ case class Numeral(value: String) {
   val denormalisations = Seq(
     replace("IV", "IIII"),
     replace("IX", "VIIII"),
-    replace("XL", "XXXX")
+    replace("XL", "XXXX"),
+    replace("XC", "LXXXX"),
+    replace("CD", "CCCC")
   )
 
   val normalisations = Seq(
@@ -15,7 +17,10 @@ case class Numeral(value: String) {
     replace("VIV", "IX"),
     replace("XXXXX", "L"),
     replace("XXXX", "XL"),
-    replace("LXL", "XC")
+    replace("LL", "C"),
+    replace("LXL", "XC"),
+    replace("CCCCC", "D"),
+    replace("CCCC", "CD")
   )
 
   def +(other: Numeral) = {
