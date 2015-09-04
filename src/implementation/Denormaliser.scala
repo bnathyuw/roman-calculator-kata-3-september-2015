@@ -8,6 +8,7 @@ object Denormaliser {
     replace("IX", "VIIII"),
     replace("XL", "XXXX"),
     replace("XC", "LXXXX"),
-    replace("CD", "CCCC")
+    replace("CD", "CCCC"),
+    replace("CM", "DCCCC")
   )
 }

@@ -15,6 +15,8 @@ object Normaliser {
     replace("LL", "C"),
     replace("LXL", "XC"),
     replace("CCCCC", "D"),
-    replace("CCCC", "CD")
+    replace("CCCC", "CD"),
+    replace("DD", "M"),
+    replace("DCD", "CM")
   )
 }

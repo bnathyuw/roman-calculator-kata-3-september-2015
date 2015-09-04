@@ -55,4 +55,12 @@ class AddingSpec extends FlatSpec with Matchers{
   "adding CD and CC" should "give DC" in {
     Numeral("CD") + Numeral("CC") should be (Numeral("DC"))
   }
+
+  "adding DCCC and C" should "give CM" in {
+    Numeral("DCCC") + Numeral("C") should be (Numeral("CM"))
+  }
+
+  "adding CM and CC" should "give MC" in {
+    Numeral("CM") + Numeral("CC") should be (Numeral("MC"))
+  }
 }
