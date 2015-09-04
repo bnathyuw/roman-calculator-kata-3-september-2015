@@ -1,48 +1,8 @@
 package inplementation
 
 case class Numeral(value: String) {
-  val denormalisations = Seq(
-    replace("IV", "IIII"),
-    replace("IX", "VIIII"),
-    replace("XL", "XXXX"),
-    replace("XC", "LXXXX"),
-    replace("CD", "CCCC")
-  )
-
-  val normalisations = Seq(
-    sort,
-    replace("IIIII", "V"),
-    replace("IIII", "IV"),
-    replace("VV", "X"),
-    replace("VIV", "IX"),
-    replace("XXXXX", "L"),
-    replace("XXXX", "XL"),
-    replace("LL", "C"),
-    replace("LXL", "XC"),
-    replace("CCCCC", "D"),
-    replace("CCCC", "CD")
-  )
-
   def +(other: Numeral) = {
-    val s = denormalise(this.value) + denormalise(other.value)
-    Numeral(normalise(s))
+    val s = Denormaliser.denormalise(this.value) + Denormaliser.denormalise(other.value)
+    Numeral(Normaliser normalise s)
   }
-
-  private def denormalise(input: String): String = denormalisations.foldLeft(input)(bar)
-
-  private def normalise(input: String): String = normalisations.foldLeft(input)(bar)
-
-  def bar(a: String, b: String => String) = b(a)
-
-  private def replace(target: String, replacement: String) = (input: String) => {
-    input replace(target, replacement)
-  }
-
-  private def sort = (input: String) => {
-    input sortWith romanOrder
-  }
-
-  private val weights = Seq('I', 'V', 'X', 'L', 'C')
-
-  private def romanOrder(a: Char, b: Char) = weights.indexOf(a) > weights.indexOf(b)
 }
